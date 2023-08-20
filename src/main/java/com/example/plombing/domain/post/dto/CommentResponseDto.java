@@ -7,17 +7,17 @@ import lombok.Getter;
 public class CommentResponseDto {
 
 
-    private Long comment_index;
+    private Long commentIndex;
 
-    private Long post_index;
+    private Long postIndex;
 
     private String comment;
 
     private String password;
 
     public CommentResponseDto (Comment comment) {
-        this.comment_index = comment.getComment_index();
-        this.post_index = comment.getPost().getPost_index();
+        this.commentIndex = comment.getCommentIndex();
+        this.postIndex = comment.getPost().getPostIndex();
         this.comment = comment.getComment();
         this.password =comment.getPassword();
     }

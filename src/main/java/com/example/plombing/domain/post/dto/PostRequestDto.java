@@ -10,20 +10,20 @@ import lombok.NoArgsConstructor;
 public class PostRequestDto {
 
 
-    private String post_title;
+    private String postTitle;
 
     private String post;
 
-    private String post_title_photo;
+    private String postTitlePhoto;
 
-    private Long like_count;
+    private Long likeCount;
 
     @Builder
     PostRequestDto (Post post) {
-        this.post_title = post.getPost_title();
+        this.postTitle = post.getPostTitle();
         this.post = post.getPost();
-        this.post_title_photo = post.getPost_title_photo();
-        this.like_count = post.getLike_count();
+        this.postTitlePhoto = post.getPostTitlePhoto();
+        this.likeCount = post.getLikeCount();
     }
 
 }
