@@ -1,9 +1,7 @@
 package com.example.plombing.domain.post.controller;
 
-import com.example.plombing.global.ResponseService;
-import com.example.plombing.global.result.CommonResult;
+import com.example.plombing.global.dto.ApplicationResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,12 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/post")
 public class PostController {
 
-    private final ResponseService responseService;
 
-//    @GetMapping("/test")
-//    public CommonResult test(){
-//        return responseService.getSingleResult("테스트 api입니다.");
-//    }
+    @GetMapping("/test")
+    public ApplicationResponse<?> test(){
+        return ApplicationResponse.ok("테스트 api입니다.");
+    }
 //
 //    // 전체 게시판 페이지 조회
 //    @GetMapping("")

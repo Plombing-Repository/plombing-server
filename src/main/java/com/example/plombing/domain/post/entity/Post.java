@@ -1,5 +1,6 @@
 package com.example.plombing.domain.post.entity;
 
+import com.example.plombing.global.entity.User;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,32 +16,32 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long post_index;
+    @Column(name = "post_index", nullable = false)
+    private Long postIndex;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @Column
-    private String post_title;
+    @Column(name = "post_title")
+    private String postTitle;
 
     @Column
     private String post;
 
-    @Column
-    private String post_title_photo;
+    @Column(name = "post_title_photo")
+    private String postTitlePhoto;
 
-    @Column
-    private Long like_count;
+    @Column(name = "like_count")
+    private Long likeCount;
 
     @Builder
-    public Post (User user, String post_title, String post, String post_title_photo, Long like_count ) {
+    public Post (User user, String postTitle, String post, String postTitlePhoto, Long likeCount ) {
         this.user = user;
-        this.post_title = post_title;
+        this.postTitle = postTitle;
         this.post = post;
-        this.post_title_photo = post_title_photo;
-        this.like_count = like_count;
+        this.postTitlePhoto = postTitlePhoto;
+        this.likeCount = likeCount;
     }
 
 
