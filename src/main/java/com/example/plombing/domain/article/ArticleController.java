@@ -1,3 +1,5 @@
+
+    private final ResponseService responseService;
 package com.example.plombing.domain.article;
 
 import com.example.plombing.global.dto.ApplicationResponse;

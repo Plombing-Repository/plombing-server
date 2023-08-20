@@ -6,25 +6,31 @@ import lombok.Getter;
 @Getter
 public class PostResponseDto {
 
-    private Long post_index;
+    private Long postIndex;
 
-    private Long user_index;
+    private Long userIndex;
 
-    private String post_title;
+    private String postTitle;
 
     private String post;
 
-    private String post_title_photo;
+    private String postTitlePhoto;
 
-    private Long like_count;
+    private Long likeCount;
 
 
     public PostResponseDto (Post post) {
+<<<<<<< HEAD
         this.post_index = post.getPost_index();
         this.user_index = post.getUser().getUserIndex();
         this.post_title = post.getPost_title();
+=======
+        this.postIndex = post.getPostIndex();
+        this.userIndex = post.getUser().getUserIndex();
+        this.postTitle = post.getPostTitle();
+>>>>>>> post
         this.post = post.getPost();
-        this.post_title_photo = post.getPost_title_photo();
-        this.like_count = post.getLike_count();
+        this.postTitlePhoto = post.getPostTitlePhoto();
+        this.likeCount = post.getLikeCount();
     }
 }

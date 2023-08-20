@@ -15,8 +15,8 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long comment_index;
+    @Column(name= "comment_index", nullable = false)
+    private Long commentIndex;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_index", nullable = false)
