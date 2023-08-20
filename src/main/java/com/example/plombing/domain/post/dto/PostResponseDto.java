@@ -18,17 +18,10 @@ public class PostResponseDto {
 
     private Long likeCount;
 
-
     public PostResponseDto (Post post) {
-<<<<<<< HEAD
-        this.post_index = post.getPost_index();
-        this.user_index = post.getUser().getUserIndex();
-        this.post_title = post.getPost_title();
-=======
         this.postIndex = post.getPostIndex();
         this.userIndex = post.getUser().getUserIndex();
         this.postTitle = post.getPostTitle();
->>>>>>> post
         this.post = post.getPost();
         this.postTitlePhoto = post.getPostTitlePhoto();
         this.likeCount = post.getLikeCount();

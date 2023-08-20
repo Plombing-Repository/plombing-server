@@ -1,9 +1,7 @@
 package com.example.plombing.domain.post.controller;
 
-<<<<<<< HEAD
-=======
+
 import com.example.plombing.global.dto.ApplicationResponse;
->>>>>>> post
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,18 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/post")
 public class PostController {
 
-<<<<<<< HEAD
-//    @GetMapping("/test")
-//    public CommonResult test(){
-//        return responseService.getSingleResult("테스트 api입니다.");
-//    }
-=======
-
     @GetMapping("/test")
     public ApplicationResponse<?> test(){
         return ApplicationResponse.ok("테스트 api입니다.");
     }
->>>>>>> post
 //
 //    // 전체 게시판 페이지 조회
 //    @GetMapping("")
