@@ -1,5 +1,6 @@
 package com.example.plombing.domain.post.entity;
 
+import com.example.plombing.global.entity.User;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

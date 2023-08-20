@@ -21,7 +21,7 @@ public class PostResponseDto {
 
     public PostResponseDto (Post post) {
         this.post_index = post.getPost_index();
-        this.user_index = post.getUser().getUser_index();
+        this.user_index = post.getUser().getUserIndex();
         this.post_title = post.getPost_title();
         this.post = post.getPost();
         this.post_title_photo = post.getPost_title_photo();

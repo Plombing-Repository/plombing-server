@@ -1,17 +1,12 @@
 package com.example.plombing.domain.post.controller;
 
-import com.example.plombing.global.ResponseService;
-import com.example.plombing.global.result.CommonResult;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/post")
 public class PostController {
-
-    private final ResponseService responseService;
 
 //    @GetMapping("/test")
 //    public CommonResult test(){
