@@ -1,19 +1,27 @@
 package com.example.plombing.domain.season;
 
+import com.example.plombing.domain.season.dto.*;
 import com.example.plombing.global.dto.ApplicationResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/season")
 public class SeasonController {
 
-    @GetMapping("/test")
-    public ApplicationResponse<?> test(){
-        return ApplicationResponse.ok("테스트 api입니다.");
+    private final SeasonService seasonService;
+
+    // 플로밍 진척도 확인
+    @GetMapping("/progress")
+    public ApplicationResponse<GetProgressResponseDto> getProgress(@RequestParam(name = "date") String date){
+        return ApplicationResponse.ok(seasonService.getProgress(date));
+    }
+
+    // 플로밍 기여도 전송
+    @PostMapping("/contribute")
+    public ApplicationResponse<PostContributeResponseDto> postContribute(@RequestBody PostContributeRequestDto postContributeRequestDto){
+        return ApplicationResponse.ok(seasonService.postContribute(postContributeRequestDto));
     }
 
 }
