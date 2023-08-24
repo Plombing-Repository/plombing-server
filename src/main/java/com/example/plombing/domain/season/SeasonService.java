@@ -32,7 +32,7 @@ public class SeasonService {
                     .getPlombingList()
                     .stream().mapToLong(i -> i.getQuantity())
                     .sum();
-            Long total_percent = (total_sum/ 100);
+            Long total_percent = ((total_sum/ 100) >= 100) ? 100 : (total_sum/100);
             return GetProgressResponseDto.of(total_percent, total_users);
         } else {
             Season season = new Season();
