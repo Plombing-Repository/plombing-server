@@ -20,7 +20,7 @@ public class User {
     @Column(length = 64)
     private String user_name;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
 }
