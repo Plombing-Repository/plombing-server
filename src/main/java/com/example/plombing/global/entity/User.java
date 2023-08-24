@@ -1,6 +1,7 @@
 package com.example.plombing.global.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,5 +23,11 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    @Builder
+    public User(String user_name, UserType userType) {
+        this.user_name = user_name;
+        this.userType = userType;
+    }
 
 }

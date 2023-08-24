@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -54,16 +56,26 @@ public class PostService {
     @Transactional
     public ReadPostDto createPost(CreatePostDto createPostDto) {
         User user = userRepository.findByUserType(UserType.anonymity);
+        if(user == null){
+            User createUser = User.builder()
+                    .user_name(UserType.anonymity.getName())
+                    .userType(UserType.anonymity)
+                    .build();
+            userRepository.save(createUser);
+            user = createUser;
+        }
+
         Post post = Post.of(user, createPostDto);
         Post savePost = postRepository.save(post);
         return ReadPostDto.of(savePost);
     }
 
-//    public ReadPostDto updatePost(Long postIndex, UpdatePostDto updatePostDto) {
-//        Post post = postRepository.findById(postIndex)
-//                .orElseThrow(()-> new NotFoundPost());
-//
-//    }
+    public ReadPostDto updatePost(Long postIndex, UpdatePostDto updatePostDto) {
+        Post post = postRepository.findById(postIndex)
+                .orElseThrow(()-> new NotFoundPost());
+
+        return null;
+    }
 
     @Transactional
     public String deletePost(Long postIndex) {
@@ -73,8 +85,20 @@ public class PostService {
         return "게시글이 삭제되었습니다.";
     }
 
-//    public List<ReadPostDto> searchPost(String search) {
-//    }
+    public List<ReadPostDto> searchPost(String search) {
+        List<Post> postTitleList = postRepository.findByPostTitleContaining(search);
+        List<Post> postList = postRepository.findByPostContaining(search);
+
+        Set<Post> uniquePosts = new HashSet<>();  // 중복을 허용하지 않는 Set 활용
+        uniquePosts.addAll(postTitleList);
+        uniquePosts.addAll(postList);
+
+        List<ReadPostDto> readPostDtoList = new ArrayList<>();
+        for (Post post : uniquePosts) {
+            readPostDtoList.add(ReadPostDto.of(post));
+        }
+        return readPostDtoList;
+    }
 
     public List<ReadCommentDto> readComment(Long postIndex) {
         Post post = postRepository.findById(postIndex)
