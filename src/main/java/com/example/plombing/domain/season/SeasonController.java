@@ -14,8 +14,8 @@ public class SeasonController {
 
     // 플로밍 진척도 확인
     @GetMapping("/progress")
-    public ApplicationResponse<GetProgressResponseDto> getProgress(@RequestParam(name = "date") String date){
-        return ApplicationResponse.ok(seasonService.getProgress(date));
+    public ApplicationResponse<GetProgressResponseDto> getProgress(){
+        return ApplicationResponse.ok(seasonService.getProgress());
     }
 
     // 플로밍 기여도 전송
