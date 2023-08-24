@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/mountain")
 public class MountainController {
 
-    @GetMapping("/test")
+    @GetMapping("/home")
     public ApplicationResponse<?> test(){
         return ApplicationResponse.ok("테스트 api입니다.");
     }

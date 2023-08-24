@@ -42,11 +42,11 @@ public class PostController {
         return ApplicationResponse.ok(postService.createPost(createPostDto));
     }
 
-//    // 게시글 수정
-//    @PatchMapping("/{postIndex}")
-//    public ApplicationResponse<?> updatePost(@PathVariable Long postIndex, @RequestBody UpdatePostDto updatePostDto){
-//        return ApplicationResponse.ok(postService.updatePost(postIndex, updatePostDto));
-//    }
+    // 게시글 수정
+    @PatchMapping("/{postIndex}")
+    public ApplicationResponse<?> updatePost(@PathVariable Long postIndex, @RequestBody UpdatePostDto updatePostDto){
+        return ApplicationResponse.ok(postService.updatePost(postIndex, updatePostDto));
+    }
 
     // 게시글 삭제
     @DeleteMapping("/{postIndex}")
@@ -55,10 +55,10 @@ public class PostController {
     }
 
     // 게시판 검색
-//    @GetMapping("")
-//    public ApplicationResponse<?> searchPost(@RequestBody String search){
-//        return ApplicationResponse.ok(postService.searchPost(search));
-//    }
+    @GetMapping("/search")
+    public ApplicationResponse<?> searchPost(@RequestParam String keyword){
+        return ApplicationResponse.ok(postService.searchPost(keyword));
+    }
 
     /////////////////////////////////////////////////////
     // 전체 댓글 조회

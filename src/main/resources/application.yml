@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://plombing-db.cmxeudpps85r.ap-northeast-2.rds.amazonaws.com:3306/plombing
+    username: admin
+    password: admin1234
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
