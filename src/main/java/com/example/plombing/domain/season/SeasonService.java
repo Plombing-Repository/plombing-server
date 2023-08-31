@@ -32,7 +32,7 @@ public class SeasonService {
                     .getPlombingList()
                     .stream().mapToLong(i -> i.getQuantity())
                     .sum();
-            Long total_percent = ((total_sum/ 100) >= 100) ? 100 : (total_sum/100);
+            Long total_percent = ((total_sum/ 10) >= 100) ? 100 : (total_sum/10);
             return GetProgressResponseDto.of(total_percent, total_users);
         } else {
             Season season = new Season();
@@ -59,20 +59,20 @@ public class SeasonService {
                     .stream().mapToLong(i -> i.getQuantity())
                     .sum();
             total_sum += postContributeRequestDto.getAmount();
-            total_percent = (total_sum/ 100);
+            total_percent = (total_sum/ 10);
         } else {
             Season season = new Season();
             season.setSeasonIndex(season_index);
             season.setAchievedPeople((long)0);
 
             seasonRepository.save(season);
-            total_percent = postContributeRequestDto.getAmount() / 100;
+            total_percent = postContributeRequestDto.getAmount() / 10;
         }
 
         plombingRepository.save(plombing);
 
         long progress_percent = Math.round(((double)(total_percent % 33) / (double)33)*100);
-        if(total_sum >= 10000)
+        if(total_sum >= 1000)
             progress_percent = 0;
         if(postContributeRequestDto.getIsMan()){
             return PostContributeResponseDto.of(postContributeRequestDto.getAmount(), progress_percent,postContributeRequestDto.getAmount()*31);
